@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BuildingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('building')->group(function() {
+    Route::get('/', [BuildingController::class, 'building']);
+    route::get('/{room}', [BuildingController::class, 'room']);
 });
